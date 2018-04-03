@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Rekenmachine
 {
-    class Operation
+    class Operation 
     {
         public static int Calculate(string calculationString)
         {            
@@ -20,9 +20,7 @@ namespace Rekenmachine
             }
             else if (_operator == "-")
             {
-                int _indexOperator = calculationString.IndexOf("-");
-                int[] termArray = ParseString(calculationString, _indexOperator);
-                return termArray[0] - termArray[1];
+                return MarksBerekening(calculationString);
             }
             else if (_operator == "*")
             {
@@ -40,6 +38,13 @@ namespace Rekenmachine
             {
                 return 1000; // how do I solve this?
             }
+        }
+
+        private static int MarksBerekening(string calculationString)
+        {
+            int _indexOperator = calculationString.IndexOf("-");
+            int[] termArray = ParseString(calculationString, _indexOperator);
+            return termArray[0] - termArray[1];
         }
 
         static public int[] ParseString(string calculationString, int indexOperator)
