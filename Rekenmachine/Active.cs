@@ -8,15 +8,15 @@ namespace Rekenmachine
 {
     class Active
     {
-        static bool KeepActive()
-        {
-            Console.Write("New calculation? (yes/no)");
+        public static bool KeepActive()
+        {            
+            Console.WriteLine("New calculation? (yes)");
             string input = Console.ReadLine();
             if (input.ToLower() == "yes")
             {
                 return true;
-            }
-            else if (input.ToLower() == "no")
+            }            
+            else
             {
                 return false;
             }
