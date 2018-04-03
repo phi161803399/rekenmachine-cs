@@ -57,6 +57,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Active.cs" />
+    <Compile Include="Message.cs" />
     <Compile Include="Operation.cs" />
     <Compile Include="Operator.cs" />
     <Compile Include="Parse.cs" />
