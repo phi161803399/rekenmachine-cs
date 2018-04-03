@@ -8,7 +8,7 @@ namespace Rekenmachine
 {
     class Operator
     {
-        static public string GetOperator(string calculationString)
+        public static string GetOperator(string calculationString)
         {
             bool operatorPresent = Testing.OperatorPresent(calculationString);
             if (operatorPresent)
