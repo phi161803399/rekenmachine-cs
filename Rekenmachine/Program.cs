@@ -10,7 +10,7 @@ namespace Rekenmachine
     {
         static void Main(string[] args)
         {
-            bool _keepActive;
+            bool keepActive;
             do
             {
                 // input message
@@ -30,8 +30,8 @@ namespace Rekenmachine
                     Console.WriteLine($"Result: {_result}");
 
                 // keep active                
-                _keepActive = Active.KeepActive();
-            } while (_keepActive == true);           
+                keepActive = Active.KeepActive();
+            } while (keepActive == true);           
         }
     }
 }

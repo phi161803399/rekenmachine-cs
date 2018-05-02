@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Rekenmachine
 {
@@ -42,12 +38,12 @@ namespace Rekenmachine
 
         private static int MarksBerekening(string calculationString)
         {
-            int _indexOperator = calculationString.IndexOf("-");
-            int[] termArray = ParseString(calculationString, _indexOperator);
+            int indexOperator = calculationString.IndexOf("-");
+            int[] termArray = ParseString(calculationString, indexOperator);
             return termArray[0] - termArray[1];
         }
 
-        static public int[] ParseString(string calculationString, int indexOperator)
+        public static int[] ParseString(string calculationString, int indexOperator)
         {
             int _indexOperator = indexOperator;
             string _firstStringTerm = calculationString.Substring(0, _indexOperator);
@@ -56,7 +52,6 @@ namespace Rekenmachine
             int _secondIntegerTerm = Int32.Parse(_secondStringTerm);
             int[] termArray = { _firstIntegerTerm, _secondIntegerTerm };
             return termArray;
-        }   
-
+        }
     }
 }

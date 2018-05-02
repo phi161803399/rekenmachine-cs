@@ -9,14 +9,14 @@ namespace Rekenmachine
     class Active
     {
         public static bool KeepActive()
-        {            
-            Console.WriteLine("New calculation? (yes)");
+        {
+            Console.WriteLine("New calculation? (yes/no)");
             string input = Console.ReadLine();
             if (input.ToLower() == "yes")
-            {
-                return true;
-            }            
-            else
+                {
+                    return true;
+                }
+            else 
             {
                 return false;
             }
