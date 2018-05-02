@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Rekenmachine
 {
@@ -10,13 +6,22 @@ namespace Rekenmachine
     {
         public static string InputMessage()
         {
-            // reading input from console eg "7+3" => "10"
-            string _input;
-            Console.WriteLine("'String' calculator +-*/");
-            Console.WriteLine("Enter calculation (7+3): ");
-            _input = Console.ReadLine();
-            //_input = "7+3";
-            return _input;
+            string input;
+            bool validated;
+            do
+            {
+                // reading input from console eg "7+3" => "10"
+                Console.WriteLine("'String' calculator +-*/");
+                Console.WriteLine("Enter calculation (7+3): ");
+                input = Console.ReadLine();
+                //_input = "7+3";
+                validated = Validation.Validated(input);
+                if (validated != true)
+                {
+                    Console.WriteLine("Invalid input");
+                }
+            } while (validated == false);
+            return input;
         }
     }
 }
