@@ -10,8 +10,8 @@ namespace Validation
             //string pattern = @"(\w)\1";
             //string[] inputs = { "ee"};
             string pattern = @"([0-9]+)\s*([*/+-])\s*([0-9]+)";
-            string[] inputs = { "0*9", "010   + 2", "2344/9", "a+8", "98", "(8+3", "(8+3)", "8+3)", "1+(2*3)" };
-            //string[] inputs = {"0*9", "010   + 2", "2344/9"};
+            //string[] inputs = { "0*9", "010   + 2", "2344/9", "a+8", "98", "(8+3", "(8+3)", "8+3)", "1+(2*3)" };
+            string[] inputs = { "0*9", "010   + 2", "2344/9" };
             foreach (var input in inputs)
             {
                 Match m = Regex.Match(input, pattern);
