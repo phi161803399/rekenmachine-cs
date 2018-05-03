@@ -9,13 +9,8 @@ namespace Rekenmachine
             string pattern = @"(-?[0-9]+)\s*([*\/+-])\s*(-?[0-9]+)";
             Match m = Regex.Match(input, pattern);
             if (m.Success)
-            {
                 return true;
-            }
-            else
-            {
-                return false;
-            }
+            return false;
         }
     }
 }
