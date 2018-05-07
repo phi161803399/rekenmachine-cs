@@ -58,9 +58,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Active.cs" />
-    <Compile Include="Calculator.cs" />
+    <Compile Include="Calculators\AdditionCalculator.cs" />
+    <Compile Include="Calculators\Calculator.cs" />
+    <Compile Include="CalculatorFactory.cs" />
+    <Compile Include="Calculators\DivisionCalculator.cs" />
+    <Compile Include="Calculators\ProductCalculator.cs" />
+    <Compile Include="Calculators\SubtractionCalculator.cs" />
     <Compile Include="Message.cs" />
-    <Compile Include="Expressie.cs" />
+    <Compile Include="OperationType.cs" />
+    <Compile Include="Request.cs" />
     <Compile Include="Validation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

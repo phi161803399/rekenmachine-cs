@@ -6,11 +6,9 @@ namespace Rekenmachine
     {
         public static bool KeepActive()
         {
-            Console.WriteLine("New calculation? (yes/no)");
-            string input = Console.ReadLine();
-            if (input != null && input.ToLower() == "yes")
+            //Console.WriteLine("New calculation? (yes/no)");
+            //string input = Console.ReadLine();
                 return true;
-            return false;
         }
     }
 }
