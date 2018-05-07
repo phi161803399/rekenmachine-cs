@@ -11,11 +11,13 @@ namespace Rekenmachine
             {
                 // input message
                 string calculationString = Message.InputMessage();
-
-                // calculating output
-                int result = Operation.Calculate(calculationString);
-                Console.WriteLine(result == 1000 ? "No valid operator" : $"Result: {result}");
                 
+                var req = new Request(calculationString);
+                //req.Calc();
+                
+                Console.WriteLine("Left: {0}", req.LeftHand);
+                Console.WriteLine("Right: {0}", req.RightHand);
+                Console.WriteLine("Operation: {0}", req.Operation );
                 // keep active                
                 keepActive = Active.KeepActive();
             } while (keepActive);           

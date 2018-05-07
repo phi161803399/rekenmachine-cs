@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 
 namespace Rekenmachine
 {
@@ -12,5 +13,13 @@ namespace Rekenmachine
                 return true;
             return false;
         }
+
+        //public string parseme(string s)
+        //{
+        //    // read until not dec anymore
+        //    // switch character *-/+
+        //    // call parse string from this index
+        //    parseme(s);// = substring vanaf de laatste match
+        //}
     }
 }
