@@ -65,9 +65,11 @@
     <Compile Include="Calculators\ProductCalculator.cs" />
     <Compile Include="Calculators\SubtractionCalculator.cs" />
     <Compile Include="Message.cs" />
+    <Compile Include="Operand.cs" />
     <Compile Include="OperationType.cs" />
     <Compile Include="Output.cs" />
     <Compile Include="Request.cs" />
+    <Compile Include="Splitting.cs" />
     <Compile Include="Validation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

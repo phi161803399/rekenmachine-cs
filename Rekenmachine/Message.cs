@@ -14,6 +14,7 @@ namespace Rekenmachine
                 Console.WriteLine("'String' calculator +-*/");
                 Console.WriteLine("Enter calculation (7+3): ");
                 input = Console.ReadLine();
+                //input = "5*3*2";
                 validated = Validation.Validated(input);
                 if (validated != true)
                 {
