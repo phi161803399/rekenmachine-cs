@@ -8,10 +8,12 @@ namespace Rekenmachine
         {
             if (request.Operation == OperationType.product)
                 return new ProductCalculator();
-            if (request.Operation == OperationType.division)
+            else if (request.Operation == OperationType.division)
                 return new DivisionCalculator();
-            return new AdditionCalculator();
+            else if (request.Operation == OperationType.subtraction)
+                return new SubtractionCalculator();
+            else
+                return new AdditionCalculator();
         }
-
     }
 }

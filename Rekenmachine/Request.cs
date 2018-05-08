@@ -5,8 +5,8 @@ namespace Rekenmachine
 {
     public class Request 
     {
-        public int LeftHand { get; set; }
-        public int RightHand { get; set; }
+        public decimal LeftHand { get; set; }
+        public decimal RightHand { get; set; }
         public OperationType Operation { get; set; }
 
         public Request(string input)
@@ -44,8 +44,9 @@ namespace Rekenmachine
             if (!x.Success)
                 return;
 
-            LeftHand = Int32.Parse(x.Groups[1].ToString());
-            RightHand = Int32.Parse(x.Groups[3].ToString());
+            LeftHand = Decimal.TryParse(x.Groups[1].ToString(), out decimal leftNumber) ? leftNumber : throw new Exception("Can't Parse LeftHand");
+            RightHand = Decimal.TryParse(x.Groups[3].ToString(), out decimal rightNumber) ? rightNumber : throw new Exception("Can't Parse RightHand");
+            
             Operation = GetOperator(x.Groups[2].ToString());
         }
     }

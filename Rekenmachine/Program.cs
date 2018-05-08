@@ -15,10 +15,7 @@ namespace Rekenmachine
                 
                 var req = new Request(calculationString);              
                 
-                Console.WriteLine("Left: {0}", req.LeftHand);
-                Console.WriteLine("Right: {0}", req.RightHand);
-                Console.WriteLine("Operation: {0}", req.Operation );
-                Console.WriteLine("Result: {0}", req.Calculate());
+                Output.Message(req);
 
                 // keep active                
                 keepActive = Active.KeepActive();

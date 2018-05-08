@@ -66,6 +66,7 @@
     <Compile Include="Calculators\SubtractionCalculator.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="OperationType.cs" />
+    <Compile Include="Output.cs" />
     <Compile Include="Request.cs" />
     <Compile Include="Validation.cs" />
     <Compile Include="Program.cs" />
