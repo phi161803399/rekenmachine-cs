@@ -4,15 +4,34 @@ using System.Text.RegularExpressions;
 
 namespace Rekenmachine
 {
-    public class Request 
+    public class Request
     {
-        public Decimal LeftHand { get; set; }
-        public Decimal RightHand { get; set; }
+        private decimal? _val;
+        public Request LeftHand { get; set; }
+        public Request RightHand { get; set; }
         public OperationType Operation { get; set; }
-        
+        public decimal val
+        {
+            get
+            {
+                if (_val.HasValue)
+                    return _val.Value;
+                else
+                {
+                    return Calculate();
+                }
+            }
+            set => _val = value;
+        }
+
+        public Request()
+        {
+            
+        }
+
         public Request(string input)
         {
-            Parse(input);
+            //Parse(input);
         }
 
         public decimal Calculate()
@@ -38,28 +57,28 @@ namespace Rekenmachine
 
             return OperationType.addition;
         }
-        private void Parse(string input)
-        {
-            string pattern = @"^(-?[0-9]+.?[0-9]*)\s*([*\/+-])\s*(-?[0-9]+.?[0-9]*)$";
-            var x = Regex.Match(input, pattern);
-            if (!x.Success)
-                return;
+        //private void Parse(string input)
+        //{
+        //    string pattern = @"^(-?[0-9]+.?[0-9]*)\s*([*\/+-])\s*(-?[0-9]+.?[0-9]*)$";
+        //    var x = Regex.Match(input, pattern);
+        //    if (!x.Success)
+        //        return;
 
 
-            LeftHand = Decimal.TryParse(x.Groups[1].ToString(), out decimal leftNumber) 
-                ? leftNumber 
-                : throw new Exception("Can't Parse LeftHand");
-            RightHand = Decimal.TryParse(x.Groups[3].ToString(), out decimal rightNumber) 
-                ? rightNumber 
-                : throw new Exception("Can't Parse RightHand");
+        //    LeftHand = Decimal.TryParse(x.Groups[1].ToString(), out decimal leftNumber) 
+        //        ? leftNumber 
+        //        : throw new Exception("Can't Parse LeftHand");
+        //    RightHand = Decimal.TryParse(x.Groups[3].ToString(), out decimal rightNumber) 
+        //        ? rightNumber 
+        //        : throw new Exception("Can't Parse RightHand");
             
-            Operation = GetOperator(x.Groups[2].ToString());
-        }
+        //    Operation = GetOperator(x.Groups[2].ToString());
+        //}
     }
 
     public class expr
     {
-        private decimal? _val;
+        private decimal _val;
         public expr leftHand { get; set; }
         public expr rightHand { get; set; }
         public OperationType Operation { get; set; }
@@ -68,24 +87,28 @@ namespace Rekenmachine
         {
             get
             {
+                return _val;
+                /*
                 if (_val.HasValue)
                     return _val;
                 else
                 {
                     doCalc();
                 }
+                */
             }
             set => _val = value;
         }
 
         private void doCalc()
         {
-            throw new NotImplementedException();
+            
         }
 
+        
         public expr()
         {
-            
+            /*
             var x = new expr();
             var y = new expr();
             var z = new expr();
@@ -96,6 +119,7 @@ namespace Rekenmachine
             z.leftHand = x;
             x.val = 17;
             //z.rightHand = 17;
+            */
 
             // 7*5*4
             // a.lefthand = 7
@@ -135,12 +159,13 @@ namespace Rekenmachine
                 </ script >
              *
              */
+
+            /*
             string s = new string();
             s.Split()
 
             Console.Write(q.rightHand.leftHand.val);
-
-
+            */
         }
     }
     

@@ -8,21 +8,23 @@ namespace Rekenmachine
     {
         static void Main()
         {
-            Operand op1 = new Operand(1.5m);
-            Operand op2 = new Operand();
-            op2.Waarde = 2.3m;
-            Console.WriteLine("{0}", op2.Waarde);
-            Operand op3 = new Operand(3.7m);
-            List<Operand> opList = new List<Operand>();
-            opList.Add(op1);
-            opList.Add(op2);
-            opList.Add(op3);
-            foreach (Operand operand in opList)
-            {
-                Console.WriteLine("{0}", operand.Waarde);
-            }
+            var a = new Request();
+            var b = new Request();
+            var c = new Request();
+            var x = new Request();
+            var y = new Request();
+            a.val = 2;
+            x.Operation = OperationType.product;
+            b.val = 3;
+            x.LeftHand = a;
+            x.RightHand = b;
+            y.LeftHand = x;
+            y.Operation = OperationType.product;
+            y.RightHand = new Request(){val = 5};        
 
-            
+
+            Console.WriteLine(y.val);
+
             bool keepActive;
             do
             {

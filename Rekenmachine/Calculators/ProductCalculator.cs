@@ -4,7 +4,7 @@
     {
         public override decimal Calculate(Request request)
         {
-            return request.LeftHand * request.RightHand;
+            return request.LeftHand.val * request.RightHand.val;
         }
     }
 }
