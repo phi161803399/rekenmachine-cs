@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing;
 using Rekenmachine.Calculators;
 
 namespace Rekenmachine
@@ -13,17 +14,19 @@ namespace Rekenmachine
             var c = new Request();
             var x = new Request();
             var y = new Request();
-            a.val = 2;
-            x.Operation = OperationType.product;
-            b.val = 3;
+            a.Val = 2;
+            b.Val = 3;
+
             x.LeftHand = a;
+            x.Operation = OperationType.product;
             x.RightHand = b;
+
             y.LeftHand = x;
             y.Operation = OperationType.product;
-            y.RightHand = new Request(){val = 5};        
+            y.RightHand = new Request(){Val = 5};        
 
 
-            Console.WriteLine(y.val);
+            Console.WriteLine(y.Val);
 
             bool keepActive;
             do
@@ -33,7 +36,9 @@ namespace Rekenmachine
                 
                 var req = new Request(calculationString);              
                 
-                Output.Message(req);
+                Console.WriteLine("input: "+ calculationString);
+                Console.WriteLine("output: " + req);
+                //Output.Message(req.());
 
                 // keep active                
                 keepActive = Active.KeepActive();
