@@ -1,5 +1,6 @@
 ﻿using System;
 using System.CodeDom;
+using System.Diagnostics.Eventing.Reader;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
 
@@ -35,7 +36,7 @@ namespace Rekenmachine
         public Request(string input)
         {
             RequestAsString = input;
-            Parse(this);
+            Parse();
         }
 
         public decimal Calculate()
@@ -61,43 +62,23 @@ namespace Rekenmachine
 
             return OperationType.addition;
         }
-        private void Parse(Request request)
+        private void Parse()
         {
-            string matchPattern = @"^(-?[0-9]+\.?[0-9]*)\s*([*\/+-])\s*([\.\s\(\)0-9*\/+-]*)";
-            string endPattern = @"(-?[0-9]+\.?[0-9]+)";
-            var x = Regex.Match(input, matchPattern);
-            
-            if (!x.Success)
-                return;
-
-            LeftHand.Val = decimal.Parse(x.Groups[1].ToString());
-            Operation = GetOperator(x.Groups[2].ToString());
-            var y = Regex.Match(x.Groups[3].ToString(), endPattern);
+            string matchPattern = @"^([0-9]+)([*\/+-])([\.\s\(\)0-9*\/+-]*)";
+            string endPattern = @"^([0-9]*)$";
+            var y = Regex.Match(this.RequestAsString, endPattern);
             if (y.Success)
             {
-                RightHand.Val = decimal.Parse(x.Groups[3].ToString());
+                this.Val = decimal.Parse(y.Groups[1].ToString());
             }
-            else
+            var x = Regex.Match(RequestAsString, matchPattern);
+            if (x.Success)
             {
-                
+                //LeftHand.Val = decimal.Parse(x.Groups[1].ToString());
+                LeftHand = new Request(x.Groups[1].ToString());
+                Operation = GetOperator(x.Groups[2].ToString());
+                RightHand = new Request(x.Groups[3].ToString());
             }
-        }
-
-        private Request Parse(string input, Request request)
-        {
-            
-            string matchPattern = @"^(-?[0-9]+\.?[0-9]*)\s*([*\/+-])\s*([\.\s\(\)0-9*\/+-]*)";
-
-
-            var x = Regex.Match(input, matchPattern);
-            if (!x.Success)
-                return new Request() { Val = decimal.Parse(x.Groups[2].ToString()) };
-
-            var newRequest = new Request();
-            LeftHand.Val = decimal.Parse(x.Groups[1].ToString());
-            Operation = GetOperator(x.Groups[2].ToString());
-            RightHand = Parse(x.Groups[3].ToString(), this);
-            return newRequest;
         }
 
         /*
@@ -137,10 +118,10 @@ namespace Rekenmachine
 
         Console.Write(q.rightHand.leftHand.val);
         */
-        public override string ToString()
-        {
-            return LeftHand.ToString() + Operation.ToString() + RightHand.ToString();
-        }
+        //public override string ToString()
+        //{
+        //    return LeftHand.ToString() + Operation.ToString() + RightHand.ToString();
+        //}
     }
 
 

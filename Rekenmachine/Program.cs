@@ -36,8 +36,6 @@ namespace Rekenmachine
                 
                 var req = new Request(calculationString);              
                 
-                Console.WriteLine("input: "+ calculationString);
-                Console.WriteLine("output: " + req);
                 //Output.Message(req.());
 
                 // keep active                
