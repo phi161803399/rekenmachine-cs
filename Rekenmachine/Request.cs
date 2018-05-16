@@ -25,6 +25,8 @@ namespace Rekenmachine
             set => _val = value;
         }
 
+        public string RequestAsString { get; set; }
+
         public Request()
         {
             
@@ -32,7 +34,8 @@ namespace Rekenmachine
 
         public Request(string input)
         {
-            Parse(input);
+            RequestAsString = input;
+            Parse(this);
         }
 
         public decimal Calculate()
@@ -58,7 +61,7 @@ namespace Rekenmachine
 
             return OperationType.addition;
         }
-        private void Parse(string input)
+        private void Parse(Request request)
         {
             string matchPattern = @"^(-?[0-9]+\.?[0-9]*)\s*([*\/+-])\s*([\.\s\(\)0-9*\/+-]*)";
             string endPattern = @"(-?[0-9]+\.?[0-9]+)";
